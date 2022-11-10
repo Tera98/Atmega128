@@ -380,7 +380,7 @@ char motto1[20] = {0};
 char motto2[20] = {0};
 unsigned short num;
 int i=0 ,j=0, dec, sign;
-char charc[40] = {0};
+char charc[40] = "0000 value";
 
 
 int main(void)
@@ -464,13 +464,15 @@ unsigned short read_adc()
 }
 void get_clcd(short a)
 {	
-	short num;
+	
 	int k;
 	
-	num = a/10;
+	for(k=0;k<4;k++)
+	{
+		charc[k] = a/ppow(10,3-k) + '0';
+	}
 	
-	sprintf(charc,"%dLUX",num);
-	
+
 	for(k=0;k<32;k++)
 	{
 		if(k<16)
