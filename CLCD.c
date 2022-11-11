@@ -341,8 +341,7 @@ void CLCD_cmd(char cmd)
 */
 
 // 실습 3
-
-
+/*
 #include <avr/io.h>
 #define F_CPU 16000000UL
 #include <util/delay.h>
@@ -374,7 +373,7 @@ void CLCD_cmd(char);
 void CLCD_data(char); 
 void CLCD_puts(char *); 
 void get_clcd(short a);
-double ppow(double a, double b);
+int ppow(int a, int b);
 
 char motto1[20] = {0};
 char motto2[20] = {0};
@@ -470,6 +469,7 @@ void get_clcd(short a)
 	for(k=0;k<4;k++)
 	{
 		charc[k] = a/ppow(10,3-k) + '0';
+		a -= (a/ppow(10,3-k))*ppow(10,3-k);
 	}
 	
 
@@ -482,12 +482,13 @@ void get_clcd(short a)
 	}
 	
 }
-double ppow(double a, double b) // 제곱함수
+int ppow(int a, int b) // 제곱함수
 {
-	double c;
-	double d=1;
+	int c;
+	int d=1;
 	for(c=0;c<b;c++)
 	d*=a;
 	return d;
 }
 
+/*
