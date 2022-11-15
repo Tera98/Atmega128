@@ -491,4 +491,4 @@ int ppow(int a, int b) // 제곱함수
 	return d;
 }
 
-/*
+*/
